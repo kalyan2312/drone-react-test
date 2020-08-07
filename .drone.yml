@@ -3,6 +3,9 @@ type: docker
 name: default
 
 
+workspace:
+  path: /drone/src
+
 steps:
   - name: install dependencies and build
     image: node
@@ -27,7 +30,7 @@ steps:
         from_secret: secret_key
       source: /drone/src/build
       target: /
-        
+
 volumes:
 - name: buildFiles
   temp: {}
