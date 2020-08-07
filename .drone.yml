@@ -28,7 +28,7 @@ steps:
         from_secret: access_key
       secret_key:
         from_secret: secret_key
-      source: /myprojectsbuild
+      source: /myproject/build/*
       target: /
 
 volumes:
