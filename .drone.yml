@@ -11,13 +11,13 @@ steps:
       - npm run build
     volumes:
     - name: buildFiles
-      path: /build
+      path: /drone/src/build
   
   - name: upload to s3
     image: plugins/s3
     volumes:
     - name: buildFiles
-      path: /build
+      path: /drone/src/build
     settings:
       bucket: drone-test-react
       region: ap-southeast-2
@@ -25,7 +25,7 @@ steps:
         from_secret: access_key
       secret_key:
         from_secret: secret_key
-      source: /build
+      source: build
       target: /
 
 volumes:
