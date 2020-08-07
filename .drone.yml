@@ -29,7 +29,7 @@ steps:
       secret_key:
         from_secret: secret_key
       source: /myproject/build/**/*
-      target: /build
+      target: /
 
 volumes:
 - name: buildFiles
