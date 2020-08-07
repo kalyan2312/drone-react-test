@@ -14,7 +14,7 @@ steps:
       - npm run build
     volumes:
      - name: buildFiles
-       path: /myproject
+       path: /myproject/
   
   - name: upload to s3
     image: plugins/s3
