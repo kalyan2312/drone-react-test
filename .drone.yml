@@ -8,7 +8,7 @@ workspace:
 
 steps:
   - name: install dependencies and build
-    image: node
+    image: node:16
     commands:
       - npm install
       - npm run build
