@@ -23,7 +23,7 @@ steps:
        path: /myproject/build
     settings:
       bucket: drone-react-test
-      region: ap-southeast-2
+      region: us-east-1
       access_key:
         from_secret: access_key
       secret_key:
