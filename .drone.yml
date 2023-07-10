@@ -12,7 +12,10 @@ steps:
     image: 676472291562.dkr.ecr.us-east-1.amazonaws.com/drone-runner:latest
     commands:
       - aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin $REGISTRY
-      - docker build -t $REGISTRY/${DRONE_REPO_NAME}:${DRONE_COMMIT_BRANCH}-${DRONE_COMMIT_SHA:0:8} .   
+      - docker build -t $REGISTRY/${DRONE_REPO_NAME}:${DRONE_COMMIT_BRANCH}-${DRONE_COMMIT_SHA:0:8} .
+    volumes:
+      - name: docker_sock
+        path: /var/run/docker.sock
   - name: install dependencies and build
     image: node:16
     commands:
