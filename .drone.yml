@@ -3,6 +3,8 @@ type: docker
 name: default
 environment:
   REGISTRY: 676472291562.dkr.ecr.us-east-1.amazonaws.com
+  AWS_ACCESS_KEY_ID: AKIAZ3AHEADVJYHWW5XJ
+  AWS_SECRET_ACCESS_KEY: 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
 
 workspace:
   path: /myproject
@@ -10,8 +12,6 @@ workspace:
 steps:
   - name: build
     image: 676472291562.dkr.ecr.us-east-1.amazonaws.com/drone-runner:latest
-    AWS_ACCESS_KEY_ID: AKIAZ3AHEADVJYHWW5XJ
-    AWS_SECRET_ACCESS_KEY: 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
     commands:
       - aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin $REGISTRY
       - docker build -t $REGISTRY/${DRONE_REPO_NAME}:${DRONE_COMMIT_BRANCH}-${DRONE_COMMIT_SHA:0:8} .
